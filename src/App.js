@@ -4,12 +4,13 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import CreatePost from "./pages/CreatePost";
 import NotFound from "./NotFound";
-import Posts from "./routes/Posts";
-import Login from "./routes/Login";
-import Register from "./routes/Register";
-import Root from "./routes/root";
-import Profile from "./routes/Profile";
+import Login from "./pages/Login";
+import Posts from "./pages/Posts";
+import Profile from "./pages/Profile";
+import Register from "./pages/Register";
+import Root from "./pages/Root";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,14 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <NotFound />,
     children: [
+      {
+        path: "createPost",
+        element: <CreatePost />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
       {
         path: "posts",
         element: <Posts />,
@@ -27,14 +36,10 @@ const router = createBrowserRouter([
       },
       {
         path: "register",
-        element: <Register/>,
+        element: <Register />,
       },
-      {
-        path: "login",
-        element: <Login/>,
-      }
     ],
-    }
+  },
 ]);
 
 function App() {
